@@ -13,9 +13,8 @@
 <!-- Preconnect to Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 </head>
-<body class="bg-white text-body font-sans antialiased selection:bg-[#38D9F5]/30">
+<body class="bg-white text-body font-sans antialiased selection:bg-[#38D9F5]/30 min-h-screen flex flex-col justify-between">
 
 <!-- Skip to Main Content for Accessibility -->
 <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:bg-[#38D9F5] focus:text-[#07111F] focus:font-bold focus:rounded-xl focus:shadow-xl">
@@ -99,181 +98,15 @@
   </div>
 </aside>
 
-
-<main id="main-content" data-academy-catalog>
-  
-  <!-- Hero Section -->
-  <section class="bg-[#07111F] text-white py-16 md:py-20 border-b border-[#1e3c60]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl space-y-4">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#102238] border border-[#38D9F5]/30 text-[#38D9F5] text-xs font-mono">
-          <span>ScITech Academy Catalog</span>
-        </div>
-        <h1 class="text-4xl sm:text-5xl font-bold font-heading leading-tight tracking-tight text-white">
-          Practical skills for scientific & technical excellence
-        </h1>
-        <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
-          Master literature synthesis, academic manuscript structuring, statistical testing, and applied AI through self-paced modules and live workshops.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Catalog Search & Filter Controls -->
-  <section class="py-8 bg-[#F5F8FC] border-b border-soft-border sticky top-20 z-30 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-      
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-        
-        <!-- Search Bar (5 cols) -->
-        <div class="md:col-span-5 relative">
-          <label for="course-search-input" class="sr-only">Search courses</label>
-          <input id="course-search-input" data-course-search type="text" placeholder="Search by topic, keyword, or title..." class="form-input pl-10 pr-4 py-2.5 text-sm" />
-          <svg class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        </div>
-
-        <!-- Topic Filter Dropdown (3 cols) -->
-        <div class="md:col-span-3">
-          <label for="topic-filter-select" class="sr-only">Filter by Topic</label>
-          <select id="topic-filter-select" data-filter-topic class="form-select py-2.5 text-sm">
-            <option value="all">All Topics (Research, Writing, Data, AI)</option>
-            <option value="Research Skills">Research Skills</option>
-            <option value="Academic Writing">Academic Writing</option>
-            <option value="Data Analysis">Data Analysis</option>
-            <option value="AI & Technology">AI & Technology</option>
-          </select>
-        </div>
-
-        <!-- Level Filter Dropdown (2 cols) -->
-        <div class="md:col-span-2">
-          <label for="level-filter-select" class="sr-only">Filter by Level</label>
-          <select id="level-filter-select" data-filter-level class="form-select py-2.5 text-sm">
-            <option value="all">All Levels</option>
-            <option value="Beginner">Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-          </select>
-        </div>
-
-        <!-- Sort Control (2 cols) -->
-        <div class="md:col-span-2">
-          <label for="sort-filter-select" class="sr-only">Sort Courses</label>
-          <select id="sort-filter-select" data-course-sort class="form-select py-2.5 text-sm">
-            <option value="title-asc">Sort: A-Z</option>
-            <option value="title-desc">Sort: Z-A</option>
-            <option value="duration">Sort: Duration</option>
-          </select>
-        </div>
-
-      </div>
-
-      <!-- Type Filter Radio Pills & Clear Action -->
-      <div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-soft-border text-xs">
-        
-        <div class="flex items-center gap-4">
-          <span class="font-bold text-body uppercase tracking-wider text-[11px]">Type:</span>
-          <label class="inline-flex items-center gap-1.5 cursor-pointer">
-            <input type="radio" data-filter-type name="course-type" value="all" checked class="text-action-blue focus:ring-action-blue">
-            <span>All Courses</span>
-          </label>
-          <label class="inline-flex items-center gap-1.5 cursor-pointer">
-            <input type="radio" data-filter-type name="course-type" value="free" class="text-action-blue focus:ring-action-blue">
-            <span>Free Lessons</span>
-          </label>
-          <label class="inline-flex items-center gap-1.5 cursor-pointer">
-            <input type="radio" data-filter-type name="course-type" value="paid" class="text-action-blue focus:ring-action-blue">
-            <span>Paid Workshops</span>
-          </label>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <!-- Accessible Live Region for Result Count -->
-          <span data-result-count aria-live="polite" class="font-mono text-muted">Showing 7 courses</span>
-          <button data-clear-filters class="text-action-blue font-semibold hover:underline">Clear Filters</button>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Course Cards Grid -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Empty State Container -->
-      <div data-empty-state class="hidden text-center py-16 bg-paper rounded-3xl border border-soft-border">
-        <svg class="w-12 h-12 text-muted mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-        <h3 class="text-xl font-bold text-body mb-2">No courses match your active criteria</h3>
-        <p class="text-sm text-muted mb-6">Try clearing your search query or selecting a different topic filter.</p>
-        <button data-clear-filters class="btn-primary btn-sm">Reset All Filters</button>
-      </div>
-
-      <!-- Courses Grid -->
-      <div data-courses-grid class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- JS dynamically populates courses from COURSES seed array -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Course Detail Modal Popup -->
-  <div data-course-modal class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-    <!-- Backdrop -->
-    <div data-course-modal-backdrop class="fixed inset-0 bg-[#07111F]/80 backdrop-blur-sm transition-opacity"></div>
-    
-    <!-- Modal Dialog Window -->
-    <div class="relative bg-white rounded-3xl border border-soft-border shadow-2xl max-w-2xl w-full p-6 sm:p-8 z-10 max-h-[90vh] overflow-y-auto">
-      <button data-course-modal-close aria-label="Close modal" class="absolute top-6 right-6 text-gray-400 hover:text-body focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-
-      <div data-course-modal-content>
-        <!-- Rendered dynamically by academy.js -->
-      </div>
+<main id="main-content" class="flex-grow py-20 md:py-32" data-academy-catalog>
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Search Bar -->
+    <div class="relative">
+      <label for="course-search-input" class="sr-only">Search courses</label>
+      <input id="course-search-input" data-course-search type="text" placeholder="Search..." class="form-input pl-11 pr-4 py-3.5 text-base shadow-sm" />
+      <svg class="w-5 h-5 text-gray-400 absolute left-4 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
     </div>
   </div>
-
-  <!-- Reusable WhatsApp Consultation Call to Action Panel -->
-<section class="py-16 md:py-20 bg-[#07111F] relative overflow-hidden text-white">
-  <!-- Subtle SVG Background Grid -->
-  <div class="absolute inset-0 opacity-10 pointer-events-none">
-    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern id="cta-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38D9F5" stroke-width="0.5"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#cta-grid)" />
-    </svg>
-  </div>
-
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#38D9F5]/10 border border-[#38D9F5]/30 text-[#38D9F5] text-xs font-mono mb-6">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-      <span>Instant WhatsApp Consultation</span>
-    </div>
-
-    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading mb-6 tracking-tight">
-      Ready to advance your research or technical project?
-    </h2>
-
-    <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-      Connect directly with SciTech on WhatsApp for instant project scoping, guidance inquiries, and course support.
-    </p>
-
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="https://wa.me/821048355911" target="_blank" rel="noopener" class="btn-cyan w-full sm:w-auto font-bold text-base px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white border-none shadow-lg">
-        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.762.459 3.48 1.332 5.001l-1.416 5.166 5.289-1.386c1.47.8 3.143 1.222 4.783 1.223h.004c5.507 0 9.99-4.478 9.99-9.984s-4.483-9.984-9.992-9.984zm5.82 14.184c-.244.688-1.428 1.312-1.966 1.396-.512.08-1.176.113-1.897-.116-.437-.138-1.002-.321-1.728-.636-3.044-1.319-5.029-4.407-5.181-4.609-.153-.203-1.242-1.653-1.242-3.153 0-1.5 0-2.235.534-2.775.183-.184.458-.29.733-.29.274 0 .397.004.565.012.183.008.427-.069.671.518.244.587.824 2.01.897 2.155.073.146.122.316.024.509-.098.192-.146.311-.29.482-.143.171-.301.383-.43.514-.143.144-.293.301-.126.587.168.287.747 1.232 1.603 1.996 1.099.98 2.026 1.285 2.313 1.428.287.143.454.122.622-.07.168-.192.721-.837.913-1.124.192-.287.384-.239.642-.144.258.095 1.637.772 1.918.912.281.14.469.21.537.326.069.117.069.678-.175 1.366z"/></svg>
-        <span>Chat on WhatsApp (+82 10-4835-5911)</span>
-      </a>
-      <a href="academy.html" class="btn-secondary-dark w-full sm:w-auto font-semibold text-base px-8 py-4">
-        <span>Explore Academy Courses</span>
-      </a>
-    </div>
-  </div>
-</section>
-
 </main>
 
 <!-- Footer Section -->
@@ -358,7 +191,6 @@
     </div>
   </div>
 </footer>
-
 
 <script type="module" src="src/js/main.js"></script>
 <script type="module" src="src/js/academy.js"></script>

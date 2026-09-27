@@ -5,145 +5,19 @@
 <head>
 {{HEAD}}
 </head>
-<body class="bg-white text-body font-sans antialiased selection:bg-[#38D9F5]/30">
+<body class="bg-white text-body font-sans antialiased selection:bg-[#38D9F5]/30 min-h-screen flex flex-col justify-between">
 
 {{HEADER}}
 
-<main id="main-content" data-academy-catalog>
-  
-  <!-- Hero Section -->
-  <section class="bg-[#07111F] text-white py-16 md:py-20 border-b border-[#1e3c60]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl space-y-4">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#102238] border border-[#38D9F5]/30 text-[#38D9F5] text-xs font-mono">
-          <span>ScITech Academy Catalog</span>
-        </div>
-        <h1 class="text-4xl sm:text-5xl font-bold font-heading leading-tight tracking-tight text-white">
-          Practical skills for scientific & technical excellence
-        </h1>
-        <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
-          Master literature synthesis, academic manuscript structuring, statistical testing, and applied AI through self-paced modules and live workshops.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Catalog Search & Filter Controls -->
-  <section class="py-8 bg-[#F5F8FC] border-b border-soft-border sticky top-20 z-30 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-      
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-        
-        <!-- Search Bar (5 cols) -->
-        <div class="md:col-span-5 relative">
-          <label for="course-search-input" class="sr-only">Search courses</label>
-          <input id="course-search-input" data-course-search type="text" placeholder="Search by topic, keyword, or title..." class="form-input pl-10 pr-4 py-2.5 text-sm" />
-          <svg class="w-4 h-4 text-gray-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        </div>
-
-        <!-- Topic Filter Dropdown (3 cols) -->
-        <div class="md:col-span-3">
-          <label for="topic-filter-select" class="sr-only">Filter by Topic</label>
-          <select id="topic-filter-select" data-filter-topic class="form-select py-2.5 text-sm">
-            <option value="all">All Topics (Research, Writing, Data, AI)</option>
-            <option value="Research Skills">Research Skills</option>
-            <option value="Academic Writing">Academic Writing</option>
-            <option value="Data Analysis">Data Analysis</option>
-            <option value="AI & Technology">AI & Technology</option>
-          </select>
-        </div>
-
-        <!-- Level Filter Dropdown (2 cols) -->
-        <div class="md:col-span-2">
-          <label for="level-filter-select" class="sr-only">Filter by Level</label>
-          <select id="level-filter-select" data-filter-level class="form-select py-2.5 text-sm">
-            <option value="all">All Levels</option>
-            <option value="Beginner">Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-          </select>
-        </div>
-
-        <!-- Sort Control (2 cols) -->
-        <div class="md:col-span-2">
-          <label for="sort-filter-select" class="sr-only">Sort Courses</label>
-          <select id="sort-filter-select" data-course-sort class="form-select py-2.5 text-sm">
-            <option value="title-asc">Sort: A-Z</option>
-            <option value="title-desc">Sort: Z-A</option>
-            <option value="duration">Sort: Duration</option>
-          </select>
-        </div>
-
-      </div>
-
-      <!-- Type Filter Radio Pills & Clear Action -->
-      <div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-soft-border text-xs">
-        
-        <div class="flex items-center gap-4">
-          <span class="font-bold text-body uppercase tracking-wider text-[11px]">Type:</span>
-          <label class="inline-flex items-center gap-1.5 cursor-pointer">
-            <input type="radio" data-filter-type name="course-type" value="all" checked class="text-action-blue focus:ring-action-blue">
-            <span>All Courses</span>
-          </label>
-          <label class="inline-flex items-center gap-1.5 cursor-pointer">
-            <input type="radio" data-filter-type name="course-type" value="free" class="text-action-blue focus:ring-action-blue">
-            <span>Free Lessons</span>
-          </label>
-          <label class="inline-flex items-center gap-1.5 cursor-pointer">
-            <input type="radio" data-filter-type name="course-type" value="paid" class="text-action-blue focus:ring-action-blue">
-            <span>Paid Workshops</span>
-          </label>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <!-- Accessible Live Region for Result Count -->
-          <span data-result-count aria-live="polite" class="font-mono text-muted">Showing 7 courses</span>
-          <button data-clear-filters class="text-action-blue font-semibold hover:underline">Clear Filters</button>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Course Cards Grid -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Empty State Container -->
-      <div data-empty-state class="hidden text-center py-16 bg-paper rounded-3xl border border-soft-border">
-        <svg class="w-12 h-12 text-muted mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-        <h3 class="text-xl font-bold text-body mb-2">No courses match your active criteria</h3>
-        <p class="text-sm text-muted mb-6">Try clearing your search query or selecting a different topic filter.</p>
-        <button data-clear-filters class="btn-primary btn-sm">Reset All Filters</button>
-      </div>
-
-      <!-- Courses Grid -->
-      <div data-courses-grid class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- JS dynamically populates courses from COURSES seed array -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Course Detail Modal Popup -->
-  <div data-course-modal class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-    <!-- Backdrop -->
-    <div data-course-modal-backdrop class="fixed inset-0 bg-[#07111F]/80 backdrop-blur-sm transition-opacity"></div>
-    
-    <!-- Modal Dialog Window -->
-    <div class="relative bg-white rounded-3xl border border-soft-border shadow-2xl max-w-2xl w-full p-6 sm:p-8 z-10 max-h-[90vh] overflow-y-auto">
-      <button data-course-modal-close aria-label="Close modal" class="absolute top-6 right-6 text-gray-400 hover:text-body focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-
-      <div data-course-modal-content>
-        <!-- Rendered dynamically by academy.js -->
-      </div>
+<main id="main-content" class="flex-grow py-20 md:py-32" data-academy-catalog>
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Search Bar -->
+    <div class="relative">
+      <label for="course-search-input" class="sr-only">Search courses</label>
+      <input id="course-search-input" data-course-search type="text" placeholder="Search..." class="form-input pl-11 pr-4 py-3.5 text-base shadow-sm" />
+      <svg class="w-5 h-5 text-gray-400 absolute left-4 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
     </div>
   </div>
-
-  {{CONSULTATION_CTA}}
 </main>
 
 {{FOOTER}}
