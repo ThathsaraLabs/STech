@@ -6,9 +6,9 @@
   "scripts": {
     "build:css": "tailwindcss -i ./src/styles/input.css -o ./css/styles.css --minify",
     "watch:css": "tailwindcss -i ./src/styles/input.css -o ./css/styles.css --watch",
-    "build:pages": "python build.py",
-    "build": "python build.py && tailwindcss -i ./src/styles/input.css -o ./css/styles.css --minify",
-    "serve": "python -m http.server 8000"
+    "build:pages": "python3 build.py || python build.py",
+    "build": "(python3 build.py || python build.py) && tailwindcss -i ./src/styles/input.css -o ./css/styles.css --minify",
+    "serve": "python3 -m http.server 8000 || python -m http.server 8000"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
