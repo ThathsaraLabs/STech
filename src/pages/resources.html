@@ -1,0 +1,112 @@
+<!-- META_TITLE: Resources & Starter Guides | ScITech Research Studio -->
+<!-- META_DESC: Free research checklists, literature review planning templates, data preparation guides, and academic writing resources. -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+{{HEAD}}
+</head>
+<body class="bg-white text-body font-sans antialiased selection:bg-[#38D9F5]/30">
+
+{{HEADER}}
+
+<main id="main-content" data-resources-catalog>
+  
+  <!-- Hero Section -->
+  <section class="bg-[#07111F] text-white py-16 md:py-20 border-b border-[#1e3c60]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#102238] border border-[#38D9F5]/30 text-[#38D9F5] text-xs font-mono">
+          <span>ScITech Open Knowledge Library</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-bold font-heading leading-tight tracking-tight text-white">
+          Research Guides, Checklists & Templates
+        </h1>
+        <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
+          Access open-access learning guides, literature review matrix templates, data cleaning checklists, and technical report frameworks.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Search Section -->
+  <section class="py-8 bg-[#F5F8FC] border-b border-soft-border sticky top-20 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        <!-- Category Tab Buttons -->
+        <div class="flex flex-wrap items-center gap-2" role="tablist">
+          <button data-resource-category="all" aria-selected="true" class="btn-secondary btn-sm bg-[#165DDB] text-white border-[#165DDB]">
+            All Resources
+          </button>
+          <button data-resource-category="Templates" aria-selected="false" class="btn-secondary btn-sm">
+            Templates
+          </button>
+          <button data-resource-category="Research Guides" aria-selected="false" class="btn-secondary btn-sm">
+            Research Guides
+          </button>
+          <button data-resource-category="Articles" aria-selected="false" class="btn-secondary btn-sm">
+            Articles
+          </button>
+          <button data-resource-category="Free Learning Materials" aria-selected="false" class="btn-secondary btn-sm">
+            Policy & Learning
+          </button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="relative w-full md:w-80">
+          <label for="resource-search-input" class="sr-only">Search resources</label>
+          <input id="resource-search-input" data-resource-search type="text" placeholder="Search templates & guides..." class="form-input pl-10 pr-4 py-2 text-sm" />
+          <svg class="w-4 h-4 text-gray-400 absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+
+      </div>
+
+      <div class="flex items-center justify-between text-xs font-mono text-muted pt-2 border-t border-soft-border">
+        <span data-resource-count aria-live="polite">Showing 5 resources</span>
+        <span>Free Downloadable Starter Guides</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Resources Grid -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Empty State -->
+      <div data-resource-empty class="hidden text-center py-16 bg-paper rounded-3xl border border-soft-border">
+        <h3 class="text-xl font-bold text-body mb-2">No matching resources found</h3>
+        <p class="text-sm text-muted">Try adjusting your search keyword or selected category tab.</p>
+      </div>
+
+      <!-- Grid Container -->
+      <div data-resources-grid class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered dynamically by resources.js from RESOURCES seed array -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Resource Detail Modal -->
+  <div data-resource-modal class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div data-resource-modal-backdrop class="fixed inset-0 bg-[#07111F]/80 backdrop-blur-sm"></div>
+    <div class="relative bg-white rounded-3xl border border-soft-border shadow-2xl max-w-3xl w-full p-6 sm:p-8 z-10 max-h-[90vh] overflow-y-auto">
+      <button data-resource-modal-close aria-label="Close modal" class="absolute top-6 right-6 text-gray-400 hover:text-body focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div data-resource-modal-content>
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+  {{CONSULTATION_CTA}}
+</main>
+
+{{FOOTER}}
+
+<script type="module" src="src/js/main.js"></script>
+<script type="module" src="src/js/resources.js"></script>
+</body>
+</html>

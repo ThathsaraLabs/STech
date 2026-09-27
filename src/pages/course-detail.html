@@ -1,0 +1,95 @@
+<!-- META_TITLE: Course Detail | SciTech Academy -->
+<!-- META_DESC: Detailed view of SciTech Academy course curriculum, outcomes, instructor information, and enrollment inquiry via WhatsApp +821048355911. -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+{{HEAD}}
+</head>
+<body class="bg-white text-body font-sans antialiased selection:bg-[#38D9F5]/30">
+
+{{HEADER}}
+
+<main id="main-content" class="py-16 bg-[#F5F8FC]">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div id="course-detail-container" class="bg-white p-6 sm:p-10 rounded-3xl border border-soft-border shadow-sm">
+      <div class="animate-pulse space-y-4">
+        <div class="h-6 bg-gray-200 rounded w-1/4"></div>
+        <div class="h-10 bg-gray-200 rounded w-3/4"></div>
+        <div class="h-20 bg-gray-200 rounded"></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+{{FOOTER}}
+
+<script type="module" src="src/js/main.js"></script>
+<script type="module">
+  import { COURSES } from './src/data/courses-data.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const courseId = params.get('id');
+    const container = document.getElementById('course-detail-container');
+
+    const course = COURSES.find(c => c.id === courseId) || COURSES[0];
+
+    if (container && course) {
+      container.innerHTML = `
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <span class="${course.type === 'Free' ? 'badge-cyan' : 'badge-blue'}">${course.type} • ${course.format}</span>
+          <span class="text-xs font-mono text-muted">${course.duration}</span>
+        </div>
+        
+        <h1 class="text-3xl sm:text-4xl font-bold text-body mb-4">${course.title}</h1>
+        <p class="text-muted text-base mb-8 leading-relaxed">${course.description}</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-paper p-6 rounded-2xl border border-soft-border mb-8 text-xs">
+          <div>
+            <span class="font-bold text-muted uppercase tracking-wider block mb-1">Instructor</span>
+            <span class="font-bold text-body text-sm">${course.instructor}</span>
+          </div>
+          <div>
+            <span class="font-bold text-muted uppercase tracking-wider block mb-1">Availability</span>
+            <span class="font-bold text-body text-sm">${course.availability}</span>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <h2 class="text-xl font-bold text-body mb-4">Key Learning Outcomes</h2>
+          <ul class="space-y-3">
+            ${course.outcomes.map(o => `
+              <li class="flex items-start gap-3 text-sm text-muted">
+                <svg class="w-5 h-5 text-action-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>${o}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+
+        <div class="mb-8">
+          <h2 class="text-xl font-bold text-body mb-4">Curriculum Modules</h2>
+          <div class="space-y-3">
+            ${course.curriculum.map((m, idx) => `
+              <div class="p-4 bg-white border border-soft-border rounded-xl flex justify-between items-center text-sm">
+                <span class="font-semibold text-body">Module ${idx + 1}: ${m.title}</span>
+                <span class="text-xs text-muted font-mono bg-paper px-2 py-1 rounded border border-soft-border">${m.duration}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-soft-border flex flex-col sm:flex-row items-center justify-between gap-4">
+          <a href="academy.html" class="btn-secondary w-full sm:w-auto text-center">Back to Catalog</a>
+          <a href="https://wa.me/821048355911" target="_blank" rel="noopener" class="btn-cyan w-full sm:w-auto text-center font-bold bg-emerald-500 hover:bg-emerald-600 text-white border-none shadow">
+            ${course.type === 'Free' ? 'Access Free Course Materials via WhatsApp' : 'Enquire About Enrollment on WhatsApp'}
+          </a>
+        </div>
+      `;
+    }
+  });
+</script>
+</body>
+</html>

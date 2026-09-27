@@ -1,0 +1,22 @@
+{
+  "name": "scitech-antigravity-website",
+  "version": "1.0.0",
+  "description": "ScITech — Academic & Research Guidance, Writing, Data Analysis, and Online Education Website",
+  "main": "index.html",
+  "scripts": {
+    "build:css": "tailwindcss.exe -i ./src/styles/input.css -o ./css/styles.css --minify",
+    "watch:css": "tailwindcss.exe -i ./src/styles/input.css -o ./css/styles.css --watch",
+    "build:pages": "python build.py",
+    "build": "python build.py && tailwindcss.exe -i ./src/styles/input.css -o ./css/styles.css --minify",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "research",
+    "academic-guidance",
+    "data-analysis",
+    "online-courses",
+    "scitech"
+  ],
+  "author": "ScITech Studio",
+  "license": "ISC"
+}
